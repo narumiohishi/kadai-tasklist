@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,5 +47,8 @@ public class EditServlet extends HttpServlet {
         if(m != null) {
             request.getSession().setAttribute("message_id", m.getId());
         }
+
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/edit.jsp");
+        rd.forward(request, response);
     }
 }
